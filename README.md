@@ -62,7 +62,7 @@ You will need a GPU with around 8 GB VRAM to run this in real-time.
 
 2. Run the `install_win.bat` script. This will automatically handle the installation of required dependencies and prepare your environment. There may be warnings about numpy or fsspec incompatibilies, but you can ignore them, it will work nevertheless.
 
-If you are running UNIX or MAC you need to adjust this script (if someone with more experience under these platforms could mail me install-scripts, I would love to add them for these platforms).
+    If you are running UNIX or MAC you need to adjust this script (if someone with more experience under these platforms could mail me install-scripts, I would love to add them for these platforms).
 
 3. Download zephyr-7b-beta.Q5_K_M.gguf from [here](https://huggingface.co/TheBloke/zephyr-7B-beta-GGUF/tree/main). 
    - Open creation_params.json and enter the filepath to the downloaded model into `model_path`.
