@@ -113,6 +113,5 @@ The project is open-sourced under the MIT License.
 
 Kolja Beigel  
 - Email: [kolja.beigel@web.de](mailto:kolja.beigel@web.de)  
-- GitHub: [KoljaB](https://github.com/KoljaB/RealtimeTTS)
 
 Feel free to reach out for any queries or support related to this project.
