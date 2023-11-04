@@ -18,7 +18,7 @@ https://github.com/KoljaB/LocalAIVoiceChat/assets/7604638/cebacdad-8a57-4a03-bfd
 
 This software is in an experimental alpha state and does not provide production ready stability. The current XTTS model used for synthesis still has glitches and also Zephyr - while really good for a 7B model - of course can not compete with the answer quality of GPT 4, Claude or Perplexity.
 
-Please take this as a first attempt to providing an early version of a local realtime chatbot.
+Please take this as a first attempt to provide an early version of a local realtime chatbot.
 
 ## Setup Instructions
 
