@@ -1,0 +1,15 @@
+{
+    "prompt": "",
+    "max_tokens": 250,
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "top_k": 20,
+    "repeat_penalty": 1.2,
+    "tfs_z": 1,
+    "mirostat_mode": 0,
+    "mirostat_tau": 5,
+    "mirostat_eta": 0.1,
+    "stream": true,
+    "stop": ["</s>","<|user|>","/s>","</s"],
+    "logits_processor": []
+}
