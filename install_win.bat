@@ -29,8 +29,8 @@ python.exe -m pip install --upgrade pip
 REM install realtime libraries
 REM -----------------------------------
 
-pip install RealtimeSTT
-pip install RealtimeTTS
+pip install RealtimeSTT==0.1.6
+pip install RealtimeTTS==0.1.7
 
 
 REM torch with GPU support
