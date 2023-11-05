@@ -23,7 +23,9 @@ This software is in an experimental alpha state and does not provide production 
 
 Please take this as a first attempt to provide an early version of a local realtime chatbot.
 
-## Setup Instructions
+### Updates
+
+- Bugfix to RealtimeTTS (download of Coqui model did not work properly)
 
 ### Prerequisites
 
