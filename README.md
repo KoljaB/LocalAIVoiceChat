@@ -10,9 +10,12 @@ https://github.com/KoljaB/LocalAIVoiceChat/assets/7604638/cebacdad-8a57-4a03-bfd
 
 ## Tech Stack
 
-- **[llama_cpp](https://github.com/ggerganov/llama.cpp)**: Library interface for llamabased language models.
-- **[RealtimeSTT](https://github.com/KoljaB/RealtimeSTT)**: Real-time speech-to-text transcription library.
-- **[RealtimeTTS](https://github.com/KoljaB/RealtimeTTS)**: Real-time text-to-speech synthesis library.
+- **[llama_cpp](https://github.com/ggerganov/llama.cpp)** with Zephyr 7B  
+  - library interface for llamabased language models
+- **[RealtimeSTT](https://github.com/KoljaB/RealtimeSTT)** with faster_whisper  
+  - real-time speech-to-text transcription library
+- **[RealtimeTTS](https://github.com/KoljaB/RealtimeTTS)** with Coqui XTTS  
+  - real-time text-to-speech synthesis library
 
 ## Notes
 
@@ -20,7 +23,9 @@ This software is in an experimental alpha state and does not provide production 
 
 Please take this as a first attempt to provide an early version of a local realtime chatbot.
 
-## Setup Instructions
+### Updates
+
+- Bugfix to RealtimeTTS (download of Coqui model did not work properly)
 
 ### Prerequisites
 
