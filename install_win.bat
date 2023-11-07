@@ -1,7 +1,6 @@
-REM FIRST install NVIDIA CUDA Toolkit 11.8, NVIDIA cuDNN 8.7.0 for CUDA 11.x and ffmpeg
-
-
 @echo off
+echo Please first install NVIDIA CUDA Toolkit 11.8, NVIDIA cuDNN 8.7.0 for CUDA 11.x and ffmpeg before running this
+
 cd /d %~dp0
 
 if not exist test_env\Scripts\python.exe (
@@ -35,7 +34,6 @@ pip install RealtimeTTS==0.1.7
 
 REM torch with GPU support
 REM -----------------------------------
-
 REM https://pytorch.org/get-started/locally/
 
 pip3 install torch torchvision torchaudio --upgrade --force-reinstall --index-url https://download.pytorch.org/whl/cu118
@@ -46,6 +44,10 @@ REM -----------------------------------
 REM https://github.com/jllllll/llama-cpp-python-cuBLAS-wheels
 
 python -m pip install llama-cpp-python --prefer-binary --extra-index-url=https://jllllll.github.io/llama-cpp-python-cuBLAS-wheels/AVX2/cu118
+
+
+REM Installation bugfix for some systems
+REM -----------------------------------
 
 pip install networkx==2.8.8
 pip install typing_extensions==4.8.0
