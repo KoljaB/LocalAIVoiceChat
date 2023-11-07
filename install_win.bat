@@ -47,4 +47,12 @@ REM https://github.com/jllllll/llama-cpp-python-cuBLAS-wheels
 
 python -m pip install llama-cpp-python --prefer-binary --extra-index-url=https://jllllll.github.io/llama-cpp-python-cuBLAS-wheels/AVX2/cu118
 
+pip install networkx==2.8.8
+pip install typing_extensions==4.8.0
+pip install fsspec==2023.6.0
+pip install imageio==2.31.6
+pip install networkx==2.8.8
+pip install numpy==1.24.3
+pip install requests==2.31.0
+
 pause
