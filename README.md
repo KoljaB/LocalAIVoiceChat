@@ -73,7 +73,7 @@ You will need a GPU with around 8 GB VRAM to run this in real-time.
 
 1. Clone the repository or download the source code package.
 
-2. For Windows users, execute the `install_win.bat` script to install required dependencies and set up the environment. You may encounter warnings regarding `numpy` or `fsspec` incompatibilities; however, these can be ignored as the installation should still function correctly.
+2. For Windows users, execute the `install_win.bat` script to install required dependencies and set up the environment. You may encounter warnings regarding `numpy` or `fsspec` incompatibilities; however, these can be ignored as the installation should still function correctly. If this fails on your machine, activate your venv with `test_env\Scripts\activate.bat` and try to install the libraries like described for UNIX-Installation.
 
    For UNIX or MAC users (note that these steps are untested), it is recommended to create a virtual environment and then install the necessary libraries:
    
@@ -129,6 +129,13 @@ Open chat_params.json to change the talk scenario.
 - Find this line: coqui_engine = CoquiEngine(cloning_reference_wav="female.wav", language="en")
 - Change "female.wav" to the filename of a wave file (44100 or 22050 Hz mono 16-bit) containing the voice to clone
 
+### Speech end detection
+
+If the first sentence is transcribed before you get to the second one, raise post_speech_silence_duration on AudioToTextRecorder:
+    ```
+    AudioToTextRecorder(model="tiny.en", language="en", spinner=False, post_speech_silence_duration = 1.5) 
+    ```
+    
 ## Contributing
 
 Contributions to enhance or improve the project are warmly welcomed. Feel free to open a pull request with your proposed changes or fixes.
