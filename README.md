@@ -73,9 +73,52 @@ You will need a GPU with around 8 GB VRAM to run this in real-time.
 
 1. Clone the repository or download the source code package.
 
-2. Run the `install_win.bat` script. This will automatically handle the installation of required dependencies and prepare your environment. There may be warnings about numpy or fsspec incompatibilies, but you can ignore them, it will work nevertheless.
+2. For Windows users, execute the `install_win.bat` script to install required dependencies and set up the environment. You may encounter warnings regarding `numpy` or `fsspec` incompatibilities; however, these can be ignored as the installation should still function correctly.
 
-    If you are running UNIX or MAC you need to adjust this script (if someone with more experience under these platforms could mail me install-scripts, I would love to add them for these platforms).
+   For UNIX or MAC users (note that these steps are untested), it is recommended to create a virtual environment and then install the necessary libraries:
+   
+   - Create and activate a virtual environment:
+     ```
+     python3 -m venv test_env
+     source test_env/bin/activate
+     ```
+
+   - Install the main libraries:
+     ```
+     pip install RealtimeSTT==0.1.6
+     pip install RealtimeTTS==0.1.7
+     pip install llama-cpp-python --force-reinstall --upgrade --no-cache-dir --verbose
+     ```
+
+   - If dependency conflicts occur, install specific versions of conflicting libraries:
+     ```
+     pip install networkx==2.8.8
+     pip install typing_extensions==4.8.0
+     pip install fsspec==2023.6.0
+     pip install imageio==2.31.6
+     pip install numpy==1.24.3
+     pip install requests==2.31.0
+     ```
+
+2. If you're on Windows, try the `install_win.bat` script. This should automatically handle the installation of required dependencies and prepare your environment. There may be warnings about numpy or fsspec incompatibilies, but you can ignore them, it will work nevertheless.
+
+    If you are running UNIX or MAC, I suggest creating a venv:
+        python3 -m venv test_env
+        source test_env/bin/activate
+
+    Then installing the main libraries with:
+        pip install RealtimeSTT==0.1.6
+        pip install RealtimeTTS==0.1.7
+        pip install llama-cpp-python --force-reinstall --upgrade --no-cache-dir --verbose
+
+    If there are still conflicts after this, try:
+        pip install networkx==2.8.8
+        pip install typing_extensions==4.8.0
+        pip install fsspec==2023.6.0
+        pip install imageio==2.31.6
+        pip install networkx==2.8.8
+        pip install numpy==1.24.3
+        pip install requests==2.31.0
 
 3. Download zephyr-7b-beta.Q5_K_M.gguf from [here](https://huggingface.co/TheBloke/zephyr-7B-beta-GGUF/tree/main). 
    - Open creation_params.json and enter the filepath to the downloaded model into `model_path`.
