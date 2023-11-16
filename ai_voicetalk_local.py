@@ -2,19 +2,43 @@ if __name__ == '__main__':
     from RealtimeTTS import TextToAudioStream, CoquiEngine
     from RealtimeSTT import AudioToTextRecorder
     import llama_cpp
+    import torch
     import json
     import os
 
     output = ""
-    Llama = llama_cpp.Llama
+
+    if torch.cuda.is_available() and not torch.version.hip:
+        try:
+            print (f"try to import llama_cpp_cuda")
+            import llama_cpp_cuda
+        except:
+            print (f"llama_cpp_cuda import failed")
+            llama_cpp_cuda = None
+    else:
+        print (f"cuda not available")
+        llama_cpp_cuda = None
+
+    def llama_cpp_lib():
+        if llama_cpp_cuda is None:
+            print ("llama_cpp_lib: return llama_cpp")
+            return llama_cpp
+        else:
+            print ("llama_cpp_lib: return llama_cpp_cuda")
+            return llama_cpp_cuda
+
+    Llama = llama_cpp_lib().Llama
+
     history = []
 
-    def replace_placeholders(params, char, user, scenario):
+
+    def replace_placeholders(params, char, user, scenario = ""):
         for key in params:
             if isinstance(params[key], str):
                 params[key] = params[key].replace("{char}", char)
                 params[key] = params[key].replace("{user}", user)
-                params[key] = params[key].replace("{scenario}", scenario)
+                if scenario:
+                    params[key] = params[key].replace("{scenario}", scenario)
         return params
 
     def write_file(file_path, content, mode='w'):
@@ -60,6 +84,7 @@ if __name__ == '__main__':
     with open('chat_params.json') as f:
         chat_params = json.load(f)
     
+    chat_params = replace_placeholders(chat_params, chat_params["char"], chat_params["user"])
     chat_params = replace_placeholders(chat_params, chat_params["char"], chat_params["user"], chat_params["scenario"])
 
     if not completion_params['logits_processor']:
@@ -71,10 +96,15 @@ if __name__ == '__main__':
     model = Llama(**creation_params)
     print("llama.cpp model initialized")
 
-    print("Initializing TTS CoquiEngine ...")
-    coqui_engine = CoquiEngine(cloning_reference_wav="female.wav", language="en")
+
+    print("Initializing TTS CoquiEngine ...")    
+    # import logging
+    # logging.basicConfig(format='AI Voicetalk: %(message)s', level=logging.DEBUG)
+    # coqui_engine = CoquiEngine(cloning_reference_wav="female.wav", language="en", level=logging.DEBUG)
+    coqui_engine = CoquiEngine(cloning_reference_wav="female.wav", language="en", speed=1.0)
 
     print("Initializing STT AudioToTextRecorder ...")
+    #stream = TextToAudioStream(coqui_engine, log_characters=True, level=logging.DEBUG)
     stream = TextToAudioStream(coqui_engine, log_characters=True)
     recorder = AudioToTextRecorder(model="tiny.en", language="en", spinner=False)
 
