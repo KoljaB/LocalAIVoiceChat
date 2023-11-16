@@ -103,9 +103,7 @@ You will need a GPU with around 8 GB VRAM to run this in real-time.
      ```   
 
 ## Running the Application
-     ```
      python ai_voicetalk_local.py
-     ```
 
 ## Customize
 
