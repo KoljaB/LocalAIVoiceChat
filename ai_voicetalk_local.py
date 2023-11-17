@@ -109,6 +109,19 @@ if __name__ == '__main__':
     recorder = AudioToTextRecorder(model="tiny.en", language="en", spinner=False)
 
 
+    print()
+    while True:
+        voice_number = input(f"Select voice (1-5): ")
+        voice_path = os.path.join("voices", f"voice{voice_number}.wav")
+        coqui_engine.set_voice(voice_path)
+
+        stream.feed(f"This is how voice number {voice_number} sounds like").play()
+        #stream.feed("This is how your selected voice sounds like").play()
+        accept_voice = input(f"Accept voice (y/n): ")
+        if accept_voice.lower() != "n":
+            break
+
+
     clear_console()
     print(f'Scenario: {chat_params["scenario"]}\n\n')
 
