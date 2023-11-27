@@ -86,7 +86,7 @@ You will need a GPU with around 8 GB VRAM to run this in real-time.
    - Install the main libraries:
      ```python
      pip install RealtimeSTT==0.1.7
-     pip install RealtimeTTS==0.2.2
+     pip install RealtimeTTS==0.2.7
      ```
 4. Download zephyr-7b-beta.Q5_K_M.gguf from [here](https://huggingface.co/TheBloke/zephyr-7B-beta-GGUF/tree/main). 
    - Open creation_params.json and enter the filepath to the downloaded model into `model_path`.
