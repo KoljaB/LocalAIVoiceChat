@@ -130,7 +130,10 @@ Contributions to enhance or improve the project are warmly welcomed. Feel free t
 
 ## License
 
-The project is open-sourced under the MIT License. 
+The project is under [Coqui Public Model License 1.0.0](https://coqui.ai/cpml).
+
+This license allows only non-commercial use of a machine learning model and its outputs.
+
 
 ## Contact
 
