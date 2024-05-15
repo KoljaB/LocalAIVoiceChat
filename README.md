@@ -34,6 +34,8 @@ Please take this as a first attempt to provide an early version of a local realt
 
 You will need a GPU with around 8 GB VRAM to run this in real-time.
 
+#### For nVidia users
+
 - **NVIDIA CUDA Toolkit 11.8**:
     - Access the [NVIDIA CUDA Toolkit Archive](https://developer.nvidia.com/cuda-11-8-0-download-archive).
     - Choose version 11.x and follow the instructions for downloading and installation.
@@ -42,6 +44,12 @@ You will need a GPU with around 8 GB VRAM to run this in real-time.
     - Navigate to [NVIDIA cuDNN Archive](https://developer.nvidia.com/rdp/cudnn-archive).
     - Locate and download "cuDNN v8.7.0 (November 28th, 2022), for CUDA 11.x".
     - Follow the provided installation guide.
+
+#### For AMD users
+- **Install ROCm v.5.7.1**
+    - Download [ROCm SDK version 5.7.1](https://www.amd.com/en/developer/resources/rocm-hub/hip-sdk.html)
+    - Follow the provided installation guide.
+
 
 - **FFmpeg**:
 
@@ -72,11 +80,14 @@ You will need a GPU with around 8 GB VRAM to run this in real-time.
         scoop install ffmpeg
         ```    
 
+
 ### Installation Steps 
 
 1. Clone the repository or download the source code package.
 
 2. Install llama.cpp
+    - (for AMD users) Before the next step set env variable `LLAMA_HIPBLAS` value to `on`
+
     - Official way:
      ```python
      pip install llama-cpp-python --force-reinstall --upgrade --no-cache-dir --verbose
