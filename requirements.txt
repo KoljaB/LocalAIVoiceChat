@@ -84,7 +84,7 @@ kiwisolver==1.4.5
 kornia==0.7.0
 lazy_loader==0.3
 librosa==0.10.1
-llama_cpp_python==0.2.11+cu118
+llama_cpp_python==0.2.74
 llvmlite==0.40.1
 log-symbols==0.0.14
 Markdown==3.5.1
