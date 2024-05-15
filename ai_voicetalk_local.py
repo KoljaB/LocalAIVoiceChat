@@ -7,17 +7,22 @@ if __name__ == '__main__':
     import os
 
     output = ""
+    llama_cpp_cuda = None
 
-    if torch.cuda.is_available() and not torch.version.hip:
+    if torch.cuda.is_available():
         try:
             print (f"try to import llama_cpp_cuda")
             import llama_cpp_cuda
         except:
             print (f"llama_cpp_cuda import failed")
             llama_cpp_cuda = None
-    else:
-        print (f"cuda not available")
-        llama_cpp_cuda = None
+    elif torch.version.hip:
+        try:
+            print (f"try to import llama_cpp")
+            import llama_cpp
+        except:
+            print (f"ROCm is not available")
+            llama_cpp = None
 
     def llama_cpp_lib():
         if llama_cpp_cuda is None:
